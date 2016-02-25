@@ -85,3 +85,4 @@ DerivedData
 
 javascript/node_modules/*
 reactjs/node_modules/*
+angularjs/node_modules/*

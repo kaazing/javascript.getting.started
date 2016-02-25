@@ -1,0 +1,28 @@
+{
+  "name": "kaazing-javascript-starter-app",
+  "version": "1.0.0",
+  "description": " Kaazing WebSockets for JavaScript starter app",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kaazing/javascript.getting.started"
+  },
+  "keywords": [
+    "kaazing",
+    "websocket",
+    "javascript"
+  ],
+  "author": "Kaazing Corporation",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kaazing/javascript.getting.started/issues"
+  },
+  "homepage": "https://github.com/kaazing/javascript.getting.started",
+  "dependencies": {
+    "angular": "^1.5.0",
+    "bootstrap3": "^3.3.5",
+    "jquery": "^2.2.1",
+    "kaazing-javascript-universal-client": "^0.2.4",
+    "requirejs": "^2.1.22"
+  }
+}
