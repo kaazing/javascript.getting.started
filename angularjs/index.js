@@ -13,13 +13,13 @@ angular.module("webSocketApp", ['KaazingClientService'])
 		$scope.message="No data yet!";
 
 		$scope.sendMessageOnClick=function(){
-			AngularUniversalClient.sendMessage("Message " + $scope.messageCounter + " is sent!");
+			AngularUniversalClient.sendMessage({message:"Message " + $scope.messageCounter + " is sent!"});
 			$scope.messageCounter++;
 		}
 
 		$scope.onMessage=function(msg){
-			$log.info("Received server message: "+msg);
-			$timeout(function(){$scope.message=msg;}, 100);
+			$log.info("Received server message: "+msg.message);
+			$timeout(function(){$scope.message=msg.message;}, 100);
 		}
 
 		$scope.onError=function(err){
@@ -38,6 +38,6 @@ angular.module("webSocketApp", ['KaazingClientService'])
 			$scope.onError, // callback function to process errors
 			null, // no callback function to dologging
 			function () { // function to call when the connection is established
-				AngularUniversalClient.sendMessage("Initial message is sent!")
+				AngularUniversalClient.sendMessage({message:"Initial message is sent!"})
 			});
 	});

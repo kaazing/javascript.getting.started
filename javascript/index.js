@@ -8,8 +8,8 @@ var connectionInfo = {
 	password: "guest"
 };
 var onMessage=function(msg) {
-	console.log("Received from the server: " + msg);
-	$('#server-data').text(msg);
+	console.log("Received from the server: " + msg.message);
+	$('#server-data').text(msg.message);
 };
 
 var onError=function(err) {
@@ -27,11 +27,11 @@ client.connect(
 	onError, // callback function to process errors
 	null, // no callback function to dologging
 	function () { // function to call when the connection is established
-		client.sendMessage("Initial message is sent!")
+		client.sendMessage({message:"Initial message is sent!"});
 	});
 
 // Handle the click on the button and send the message
 var sendMessageOnClick = function () {
-	client.sendMessage("Message " + messageCounter + " is sent!");
+	client.sendMessage({message:"Message " + messageCounter + " is sent!"});
 	messageCounter++;
 }

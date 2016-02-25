@@ -23,7 +23,7 @@ var StarterAppButton = React.createClass({
 		return {messageCounter:1};
 	},
 	sendMessageOnClick: function () {
-		this.props.client.sendMessage("Message " + this.state.messageCounter + " is sent!");
+		this.props.client.sendMessage({message:"Message " + this.state.messageCounter + " is sent!"});
 		this.setState({messageCounter:this.state.messageCounter+1});
 	},
 	render: function () {
@@ -44,14 +44,14 @@ var StarterApp = React.createClass({
 		return {client:client, message:"No data yet!"};
 	},
 	onMessage:function(msg){
-		console.log("Received from server: "+msg);
-		this.setState({message:msg});
+		console.log("Received from server: "+msg.message);
+		this.setState({message:msg.message});
 	},
 	onError:function(err){
 		alert(err);
 	},
 	onConnected:function(){
-		this.state.client.sendMessage("Initial message is sent!");
+		this.state.client.sendMessage({message:"Initial message is sent!"});
 	},
 	componentDidMount: function () {
 		this.state.client.connect(
