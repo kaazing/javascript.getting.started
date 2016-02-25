@@ -7,8 +7,6 @@
 	<script src="node_modules/jquery/dist/jquery.js"></script>
 	<link href="node_modules/bootstrap3/dist/css/bootstrap.css" rel="stylesheet"/>
 	<link href="node_modules/bootstrap3/dist/css/bootstrap-theme.css" rel="stylesheet"/>
-	<script
-		src="node_modules/kaazing-javascript-universal-client/node_modules/kaazing-javascript-jms-client/JmsClient.js"></script>
 	<script src="node_modules/kaazing-javascript-universal-client/JavascriptUniversalClientNPM.js"></script>
 	<script src="index.js"></script>
 </head>
@@ -17,11 +15,12 @@
 	<div class="panel-body text-center">
 		<div class="center-block">
 			<h3>Starter Application for JavaScript with Kaazing WebSockets</h3>
-
-			<h5>Received from the server
-				<span id="server-data" class="label label-success">No data</span>
-			</h5>
-			<button type="button" class="btn btn-primary" onclick="sendMessageOnClick()">Send Message</button>
+			<div>
+				<h5>Received from the server
+					<span id="server-data" class="label label-success">No data</span>
+				</h5>
+				<button type="button" class="btn btn-primary" onclick="sendMessageOnClick()">Send Message</button>
+			</div>
 		</div>
 	</div>
 </div>
