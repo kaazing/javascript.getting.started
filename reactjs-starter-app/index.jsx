@@ -3,34 +3,44 @@
 /*jshint trailing:false */
 /*jshint newcap:false */
 /*global React */
+var clientID="Client"+Math.random().toString(36).substring(2, 15);
 
 var StarterAppLabel = React.createClass({
+	createMessage:function(){
+		return {__html: this.props.message};
+	},
+
 	render: function () {
 		return (
-			<h5>Received from the server
-				<span className="label label-success">{this.props.message}</span>
-			</h5>
-
+			<span  ref="currentMessage" dangerouslySetInnerHTML={this.createMessage()}/>
 		);
 	}
 });
 
 var StarterAppButton = React.createClass({
 	getInitialState:function(){
-		return {messageCounter:1};
+		return {messageCounter:1, messageToSend:"Message 1 is sent!"};
+	},
+	onChange: function(event) {
+		this.setState({messageToSend: event.target.value});
 	},
 	sendMessageOnClick: function () {
-		this.props.client.sendMessage({message:"Message " + this.state.messageCounter + " is sent!"});
+		var messageToSend="From "+clientID+": "+this.refs.messageToSend.value;
+		this.props.client.sendMessage({message:messageToSend});
 		this.setState({messageCounter:this.state.messageCounter+1});
+		this.setState({messageToSend:"Message "+this.state.messageCounter+" is sent!"});
 	},
 	render: function () {
 		return (
-			<button
-				type="button"
-				className="btn btn-primary"
-				onClick={this.sendMessageOnClick}>
-				Send Message
-			</button>
+			<div>
+				<input type="text" ref="messageToSend" onChange={this.onChange} value={this.state.messageToSend}/>
+				<button
+					type="button"
+					className="btn btn-primary"
+					onClick={this.sendMessageOnClick}>
+					Send Message
+				</button>
+			</div>
 		)
 	}
 });
@@ -38,17 +48,22 @@ var StarterAppButton = React.createClass({
 var StarterApp = React.createClass({
 	getInitialState: function () {
 		var client = UniversalClientDef("amqp");
-		return {client:client, message:"No data yet!"};
+		return {client:client, message:""};
 	},
 	onMessage:function(msg){
 		console.log("Received from server: "+msg.message);
-		this.setState({message:msg.message});
+		var text=this.state.message;
+		if (text.length!=0){
+			text+="<br />"
+		};
+
+		this.setState({message:text+msg.message});
 	},
 	onError:function(err){
 		alert(err);
 	},
 	onConnected:function(){
-		this.state.client.sendMessage({message:"Initial message is sent!"});
+		this.state.client.sendMessage({message:"From "+clientID+": Initial message is sent!"});
 	},
 	componentDidMount: function () {
 		this.state.client.connect(
@@ -67,7 +82,14 @@ var StarterApp = React.createClass({
 	render: function () {
 		return (
 			<div>
-				<StarterAppLabel message={this.state.message} />
+				<div className="panel panel-default">
+					<div className="panel-heading">
+						<h5 className="panel-title">Received from the server</h5>
+					</div>
+					<div className="text-left panel-body">
+						<StarterAppLabel message={this.state.message} />
+					</div>
+				</div>
 				<StarterAppButton client={this.state.client}/>
 			</div>
 		);

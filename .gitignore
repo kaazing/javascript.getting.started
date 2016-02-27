@@ -86,3 +86,6 @@ DerivedData
 javascript/node_modules/*
 reactjs/node_modules/*
 angularjs/node_modules/*
+angularjs-starter-app/node_modules/*
+javascript-starter-app/node_modules/*
+reactjs-starter-app/node_modules/*
