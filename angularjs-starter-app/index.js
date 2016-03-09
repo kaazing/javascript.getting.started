@@ -1,24 +1,22 @@
 'use strict';
 
-angular.module("webSocketApp", ['KaazingClientService','ngSanitize'])
-	.constant('connectionInfo', {
-		URL: "ws://localhost:8001/amqp",
-		TOPIC_PUB: "websocket-starter",
-		TOPIC_SUB: "websocket-starter",
-		username: "guest",
-		password: "guest"
-	})
-	.controller("mainCtl", function ($scope, $log, $timeout, connectionInfo,AngularUniversalClient) {
+angular.module("webSocketApp", ['ngSanitize'])
+	.controller("mainCtl", function ($scope, $log, $timeout) {
+		var connectionInfo = {
+			url: "ws://localhost:8001/amqp",// URL to connect
+			username: "guest",// User name
+			password: "guest"// User password
+		};
+		var TOPIC_PUB="websocket-starter";
+		var	TOPIC_SUB="websocket-starter";
+
 		$scope.clientID="Client"+Math.random().toString(36).substring(2, 15);
 		$scope.messageCounter=1;
 		$scope.message="";
 		$scope.messageToSend=null;
 
-		$scope.sendMessageOnClick=function(){
-			AngularUniversalClient.sendMessage({message:"From "+$scope.clientID+": "+$scope.messageToSend});
-			$scope.messageCounter++;
-			$scope.messageToSend="Message " + $scope.messageCounter + " is sent!"
-		}
+		$scope.client = UniversalClientDef("amqp");
+		$scope.subscription={};
 
 		$scope.onMessage=function(msg){
 			$log.info("Received server message: "+msg.message);
@@ -36,19 +34,29 @@ angular.module("webSocketApp", ['KaazingClientService','ngSanitize'])
 			alert(err);
 		}
 
-		AngularUniversalClient.connect(
-			"amqp",
-			connectionInfo.URL, // URL to connect
-			connectionInfo.username, // User name
-			connectionInfo.password, // User password
-			connectionInfo.TOPIC_PUB, // Topic to send messages
-			connectionInfo.TOPIC_SUB, // Topic to subscribe to receive messsages
-			false, // noLocal flag set to false - allow receiving your own messages
-			$scope.onMessage, // callback function to process received message
+		$scope.client.connect(connectionInfo, // Connection info
 			$scope.onError, // callback function to process errors
-			null, // no callback function to dologging
-			function () { // function to call when the connection is established
-				AngularUniversalClient.sendMessage({message:"From "+$scope.clientID+": Initial message is sent!"})
-				$scope.messageToSend="Message " + $scope.messageCounter + " is sent!";
-			});
+			function(connection){
+				connection.subscribe(TOPIC_PUB, // Topic to send message
+					TOPIC_SUB, // Topic to subscribe to receive messsages
+					$scope.onMessage, // callback function to process received message
+					false, // noLocal flag set to false - allow receiving your own messages
+					function(subscr){
+						console.info("Subscription is created "+subscr);
+						$scope.subscription=subscr;
+						$scope.subscription.sendMessage({message:"From "+$scope.clientID+": Initial message is sent!"})
+						$scope.messageToSend="Message " + $scope.messageCounter + " is sent!";
+					});
+			}
+		);
+		$( window ).unload(function() {
+			$scope.client.disconnect();
+		});
+
+		$scope.sendMessageOnClick=function(){
+			$scope.subscription.sendMessage({message:"From "+$scope.clientID+": "+$scope.messageToSend});
+			$scope.messageCounter++;
+			$scope.messageToSend="Message " + $scope.messageCounter + " is sent!"
+		}
+
 	});

@@ -13,9 +13,12 @@
 <body>
 <div class="panel panel-default">
 	<div class="panel-body text-center">
+		<img style="-webkit-user-select: none" src="https://s3.amazonaws.com/10up-new/wp-content/uploads/20160112214032/Kaazing-logo-115x115.png"/>
 		<div class="center-block">
 			<h3>Starter Application for JavaScript with Kaazing WebSockets</h3>
 			<div>
+				<input type="text" id="messageToSend" />
+				<button type="button" class="btn btn-primary" onclick="sendMessageOnClick()">Send Message</button>
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h5 class="panel-title">Received from the server</h5>
@@ -23,8 +26,6 @@
 					<div id="server-data" class="text-left panel-body">
 					</div>
 				</div>
-				<input type="text" id="messageToSend" />
-				<button type="button" class="btn btn-primary" onclick="sendMessageOnClick()">Send Message</button>
 			</div>
 		</div>
 	</div>
