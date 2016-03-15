@@ -50,7 +50,7 @@ angular.module("webSocketApp", ['ngSanitize'])
 			}
 		);
 		$( window ).unload(function() {
-			$scope.client.disconnect();
+			$scope.client.close();
 		});
 
 		$scope.sendMessageOnClick=function(){

@@ -83,7 +83,7 @@ var StarterApp = React.createClass({
 		);
 	},
 	componentWillUnmount: function(){
-		this.state.client.disconnect();
+		this.state.client.close();
 	},
 	render: function () {
 		return (

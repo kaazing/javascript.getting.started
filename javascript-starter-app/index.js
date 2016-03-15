@@ -40,7 +40,7 @@ client.connect(connectionInfo, // Connection info
 				);
 $( window ).unload(function() {
 	// TODO: Disconnect
-	client.disconnect();
+	client.close();
 });
 
 
