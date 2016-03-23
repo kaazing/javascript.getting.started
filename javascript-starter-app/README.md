@@ -16,7 +16,9 @@ npm install
 
 Application is supplied with NodeJS server component (server.js) that can be used to run application.
 
-```bash
-```
-node server.js
 
+```bash
+node server.js
+```
+
+Point your browser to http://localhost:3000
