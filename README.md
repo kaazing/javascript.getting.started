@@ -1,6 +1,6 @@
 # Kaazing JavaScript Starter Applications
 
-Kaazing JavaScript Starter Applications provide sceleton applications to develop clients that interact with Kaazing WebSocket Gateway for
+Kaazing JavaScript Starter Applications provide skeleton applications to develop clients that interact with Kaazing WebSocket Gateway for
 
 - jQuery applications
 - AngularJS v1.x applications
