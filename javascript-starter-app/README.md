@@ -3,7 +3,7 @@
 This is a reference implementation of a JavaScript Application that communicates with the Kaazing WebSocket Gateway.  
 The Application is implemented using the [Kaazing JavaScript Universal Client](https://github.com/kaazing/universal-client/tree/develop/javascript).
 
-The application communicates uses the [Kaazing Messaging Sandbox](http://sandbox.kaazing.com/messaging), a gateway hosted by Kaazing for use in rapid prototyping.
+The application communicates uses the Kaazing Messaging Sandbox, a gateway hosted by Kaazing at sandbox.kaazing.com/messaging for use in rapid prototyping.
 
 ## Installation
 The application is installed using NPM
