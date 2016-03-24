@@ -19,7 +19,7 @@ var onMessage=function(msg) { // callback function to process received message
 	$('#server-data').html(text+msg.message);
 };
 
-var onError=function(err) {
+var onError=function(err) { // replace with your own error handler
 	alert(err);
 };
 
