@@ -59,7 +59,7 @@ var StarterApp = React.createClass({
 
 		this.setState({message:text+msg.message});
 	},
-	onError:function(err){
+	onError:function(err){ // replace with your own error handler
 		alert(err);
 	},
 	onConnected:function(){
@@ -68,17 +68,18 @@ var StarterApp = React.createClass({
 	componentDidMount: function () {
 		var that=this;
 		this.state.client.connect(this.props.connectionInfo, // Connection info
-			this.onError, // callback function to process errors
+		this.onError, // callback function to process errors
 			function(connection){
 				connection.subscribe(that.props.pubTopic, // Topic to send message
-									that.props.subTopic, // Topic to subscribe to receive messsages
-									that.onMessage, // callback function to process received message
-									false, // noLocal flag set to false - allow receiving your own messages
-									function(subscr){
-										console.info("Subscription is created "+subscr);
-										that.setState({subscription:subscr});
-										that.onConnected();
-									});
+					that.props.subTopic, // Topic to subscribe to receive messsages
+					that.onMessage, // callback function to process received message
+					false, // noLocal flag set to false - allow receiving your own messages
+					function(subscr){
+						console.info("Subscription is created "+subscr);
+						that.setState({subscription:subscr});
+						that.onConnected();
+					}
+				);
 			}
 		);
 	},
@@ -108,7 +109,7 @@ var connectionInfo = {
 	password: "guest"// User password
 };
 var TOPIC_PUB="websocket-starter";
-var	TOPIC_SUB="websocket-starter";
+var TOPIC_SUB="websocket-starter";
 
 function render() {
 	ReactDOM.render(
