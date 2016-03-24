@@ -68,7 +68,7 @@ var StarterApp = React.createClass({
 	componentDidMount: function () {
 		var that=this;
 		this.state.client.connect(this.props.connectionInfo, // Connection info
-		this.onError, // callback function to process errors
+			this.onError, // callback function to process errors
 			function(connection){
 				connection.subscribe(that.props.pubTopic, // Topic to send message
 					that.props.subTopic, // Topic to subscribe to receive messsages
