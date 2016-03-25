@@ -1,12 +1,12 @@
 # JavaScript Starter Application
 
-This is a reference implementation of a ReactJS Application that communicates with Kaazing WebSocket Gateway.  
-Application is implemented using [Kaazing JavaScript Universal Client](https://github.com/kaazing/universal-client/tree/develop/javascript).
+This is a reference implementation of a ReactJS Application that communicates with the Kaazing WebSocket Gateway.  
+The application is implemented using the [Kaazing JavaScript Universal Client](https://github.com/kaazing/universal-client/tree/develop/javascript).
 
-Application communicates to Kaazing Messaging Sandbox (http://sandbox.kaazing.com/messaging).
+The application communicates uses the Kaazing Messaging Sandbox, a gateway hosted by Kaazing at sandbox.kaazing.com/messaging for use in rapid prototyping.
 
 ## Installation
-Application is installed using NPM
+The application is installed using NPM
 
 ```bash
 npm install
@@ -14,7 +14,7 @@ npm install
 
 ### Running the application
 
-Application is supplied with NodeJS server component (server.js) that can be used to run application.
+The application is supplied with a NodeJS server component (server.js) that can be used to run the application.
 
 
 ```bash

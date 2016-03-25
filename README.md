@@ -1,10 +1,13 @@
 # Kaazing JavaScript Starter Applications
 
-Kaazing JavaScript Starter Applications provide skeleton applications to develop clients that interact with Kaazing WebSocket Gateway for
+This Kaazing JavaScript Starter Applications project provides skeleton applications that can be used to develop new client applications that leverage the Kaazing WebSocket Gateway.
 
-- jQuery applications
-- AngularJS v1.x applications
-- ReactJS applications
+There are three starter apps covering three popular front-end frameworks:
 
-Applications use [Kaazing JavaScript Universal Client Library](https://github.com/kaazing/universal-client/tree/develop/javascript)
+- jQuery
+- AngularJS v1.x
+- ReactJS
 
+These applications all use the [Kaazing JavaScript Universal Client Library](https://github.com/kaazing/universal-client/tree/develop/javascript)
+
+Please feel free to submit pull requests for additional frameworks (ex: Angular2)!

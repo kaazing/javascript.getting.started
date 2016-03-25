@@ -8,7 +8,7 @@ angular.module("webSocketApp", ['ngSanitize'])
 			password: "guest"// User password
 		};
 		var TOPIC_PUB="websocket-starter";
-		var	TOPIC_SUB="websocket-starter";
+		var TOPIC_SUB="websocket-starter";
 
 		$scope.clientID="Client"+Math.random().toString(36).substring(2, 15);
 		$scope.messageCounter=1;
@@ -27,10 +27,9 @@ angular.module("webSocketApp", ['ngSanitize'])
 
 			// Need a small timeout for the angular binding to work
 			$timeout(function(){$scope.message=text+msg.message;}, 100);
-
 		}
 
-		$scope.onError=function(err){
+		$scope.onError=function(err){ // replace with your own error handler
 			alert(err);
 		}
 
@@ -40,7 +39,7 @@ angular.module("webSocketApp", ['ngSanitize'])
 				connection.subscribe(TOPIC_PUB, // Topic to send message
 					TOPIC_SUB, // Topic to subscribe to receive messsages
 					$scope.onMessage, // callback function to process received message
-					false, // noLocal flag set to false - allow receiving your own messages
+					false, // noLocal - allows you to receive your own messages, set to true to disallow
 					function(subscr){
 						console.info("Subscription is created "+subscr);
 						$scope.subscription=subscr;
