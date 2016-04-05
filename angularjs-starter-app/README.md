@@ -22,3 +22,6 @@ node server.js
 ```
 
 Point your browser to http://localhost:3000
+
+You should see in the "Received from server" window message similar to: "From Client4a0xlat9w5t2f: Initial message is sent!"
+When you click on "Send Message" button, you chould see in the "Received from server" window message similar to "From Client4a0xlat9w5t2f: Message 1 is sent!" where "Message 1 is sent" should match the text in the input control.
