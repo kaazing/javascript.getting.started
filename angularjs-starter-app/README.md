@@ -6,7 +6,9 @@ This application is implemented using the [Kaazing JavaScript Universal Client](
 The application communicates uses the Kaazing Messaging Sandbox, a gateway hosted by Kaazing at sandbox.kaazing.com/messaging for use in rapid prototyping.
 
 ## Installation
-The application is installed using NPM. Make sure you are in the `/angularjs-starter-app/` subdirectory first.
+The application is installed using NPM.
+
+Make sure you are in the `/angularjs-starter-app/` subdirectory then:
 
 ```bash
 npm install
