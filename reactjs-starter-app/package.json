@@ -21,6 +21,7 @@
   "dependencies": {
     "babel-browser-transform": "^0.1.0",
     "bootstrap3": "^3.3.5",
+    "express": "^4.13.4",
     "jquery": "^2.2.1",
     "kaazing-javascript-universal-client": "",
     "react": "^0.14.7",

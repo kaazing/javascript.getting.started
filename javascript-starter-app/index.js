@@ -2,7 +2,7 @@ var clientID="Client"+Math.random().toString(36).substring(2, 15);
 var messageCounter = 1;
 var client = UniversalClientDef("amqp");
 var connectionInfo = {
-	url: "ws://localhost:8001/amqp",// URL to connect
+	url: "wss://sandbox.kaazing.net/amqp091",// URL to connect
 	username: "guest", // User name
 	password: "guest"  // User password
 };

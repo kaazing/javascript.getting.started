@@ -23,6 +23,7 @@ node server.js
 
 Point your browser to http://localhost:3000
 
+You should see in the "Received from server” window, a message similar to: "From Client4a0xlat9w5t2f: Initial message is sent!" When you click on the "Send Message" button, you will see in the "Received from server" window message similar to "From Client4a0xlat9w5t2f: Message 1 is sent!" where "Message 1 is sent" should match the text in the input control.
 
 #### Running directly from the Browser (Chrome)
 If you were to drag the index.html file into Chrome, the application will not start and the Chrome console will show this error:

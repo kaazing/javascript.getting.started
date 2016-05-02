@@ -104,7 +104,7 @@ var StarterApp = React.createClass({
 });
 
 var connectionInfo = {
-	url: "ws://localhost:8001/amqp",// URL to connect
+	url: "wss://sandbox.kaazing.net/amqp091",// URL to connect
 	username: "guest",// User name
 	password: "guest"// User password
 };

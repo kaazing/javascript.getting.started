@@ -20,6 +20,7 @@
   "homepage": "https://github.com/kaazing/javascript.getting.started",
   "dependencies": {
     "bootstrap3": "^3.3.5",
+    "express": "^4.13.4",
     "jquery": "^2.2.1",
     "kaazing-javascript-universal-client": "",
     "requirejs": "^2.1.22"
