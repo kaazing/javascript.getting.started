@@ -37,7 +37,7 @@ client.connect(connectionInfo, // Connection info
     onError,           // callback to process errors
     function (conn) {
         conn.subscribe(
-            topicPub,  // Topic to send message
+            topicPub,  // Topic to send messages
             topicSub,  // Topic to subscribe to receive messages
             onMessage, // callback function to process received message
             false,     // noLocal flag - setting this to 'false' allows you to receive your own messages

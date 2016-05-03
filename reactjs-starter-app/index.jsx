@@ -67,8 +67,8 @@ var StarterApp = React.createClass({ // the application itself
             this.onError,                // callback to process errors
             function (conn) {
                 conn.subscribe(
-                    that.props.pubTopic, // Topic to send message
-                    that.props.subTopic, // Topic to subscribe to receive messsages
+                    that.props.pubTopic, // Topic to send messages
+                    that.props.subTopic, // Topic to subscribe to receive messages
                     that.onMessage,      // callback function to process received message
                     false,               // noLocal flag - setting this to 'false' allows you to receive your own messages
                     function (subscr) {
