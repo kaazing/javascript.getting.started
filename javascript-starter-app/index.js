@@ -33,7 +33,7 @@ var onError = function (err) { // replace this with your own error handler
     alert(err);
 };
 
-client.connect(connectionInfo, // Connection info
+client.connect(connectionInfo,
     onError,           // callback to process errors
     function (conn) {
         conn.subscribe(

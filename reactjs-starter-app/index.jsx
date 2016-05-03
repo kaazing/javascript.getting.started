@@ -1,3 +1,5 @@
+'use strict';
+
 /* index.js - this is the client ReactJS javascript code for the ReactJS starter app
  * This shows the basic process for establishing a WebSocket connection and sending/receiving messages
  * It makes use of the Kaazing Javascript UniversalClient library
@@ -45,7 +47,7 @@ var StarterAppButton = React.createClass({ // the "Send Message" Button"
 var StarterApp = React.createClass({ // the application itself
     getInitialState: function () {
         var client = UniversalClientDef("amqp");
-        return {client: client, message: "", subscription: {}};
+        return { client: client, message: "", subscription: {} };
     },
     onMessage: function (msg) {
         console.log("Received from server: " + msg.message);
@@ -63,7 +65,7 @@ var StarterApp = React.createClass({ // the application itself
     },
     componentDidMount: function () {
         var that = this;
-        this.state.client.connect(this.props.connectionInfo, // Connection info
+        this.state.client.connect(this.props.connectionInfo,
             this.onError,                // callback to process errors
             function (conn) {
                 conn.subscribe(

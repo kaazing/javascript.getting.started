@@ -39,7 +39,7 @@ angular.module("webSocketApp", ['ngSanitize'])
             alert(err);
         };
 
-        $scope.client.connect(connectionInfo, // Connection info
+        $scope.client.connect(connectionInfo,
             $scope.onError,           // callback to process errors
             function (conn) {
                 conn.subscribe(
