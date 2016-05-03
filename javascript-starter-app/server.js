@@ -1,5 +1,5 @@
 // Server code for the javascript starter app - run with node.js
-// var express = require('express');
+var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 app.use(express.static(__dirname + 'node_modules'));
