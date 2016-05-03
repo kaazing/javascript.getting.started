@@ -6,7 +6,9 @@ The Application is implemented using the [Kaazing JavaScript Universal Client](h
 The application communicates uses the Kaazing Messaging Sandbox, a gateway hosted by Kaazing at sandbox.kaazing.com/messaging for use in rapid prototyping.
 
 ## Installation
-The application is installed using NPM
+The application is installed using NPM.
+
+Make sure you are in the `/angularjs-starter-app/` subdirectory then:
 
 ```bash
 npm install
@@ -22,3 +24,5 @@ node server.js
 ```
 
 Point your browser to http://localhost:3000
+
+You should see in the "Received from server” window, a message similar to: "From Client4a0xlat9w5t2f: Initial message is sent!" When you click on the "Send Message" button, you will see in the "Received from server" window message similar to "From Client4a0xlat9w5t2f: Message 1 is sent!" where "Message 1 is sent" should match the text in the input control.
