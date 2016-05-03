@@ -17,8 +17,8 @@ var client = UniversalClientDef("amqp");
 var topicPub = "websocket-starter"; // the 'publication' topic in pub-sub
 var topicSub = "websocket-starter"; // the matching 'subscription' topic in pub-sub
 var subscription = {};
-var msgToSend = $('#messageToSend'); // the DOM node for messages to send
-var serverData = $('#server-data'); // the DOM node that will display messages from the server
+var msgToSend; // the DOM node for messages to send
+var serverData; // the DOM node that will display messages from the server
 
 var onMessage = function (msg) { // callback to process received messages
     console.log("Received from the server: " + msg.message);
@@ -42,6 +42,8 @@ client.connect(connectionInfo,
             onMessage, // callback function to process received message
             false,     // noLocal flag - setting this to 'false' allows you to receive your own messages
             function (sub) {
+                msgToSend=$('#messageToSend');
+                serverData = $('#server-data');
                 subscription = sub;
                 console.info("Subscription is created " + subscription);
                 subscription.sendMessage({ message: "From " + clientID + ": Initial message is sent!" });
