@@ -1,4 +1,4 @@
-# JavaScript Starter Application
+# ReactJS Starter Application
 
 This is a reference implementation of a ReactJS Application that communicates with the Kaazing WebSocket Gateway.  
 The application is implemented using the [Kaazing JavaScript Universal Client](https://github.com/kaazing/universal-client/tree/develop/javascript).
@@ -8,7 +8,7 @@ The application communicates uses the Kaazing Messaging Sandbox, a gateway hoste
 ## Installation
 The application is installed using NPM.
 
-Make sure you are in the `/javascript-starter-app/` subdirectory then:
+Make sure you are in the `/reactjs-starter-app/` subdirectory then:
 
 ```bash
 npm install

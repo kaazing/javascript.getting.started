@@ -8,7 +8,7 @@ The application communicates uses the Kaazing Messaging Sandbox, a gateway hoste
 ## Installation
 The application is installed using NPM.
 
-Make sure you are in the `/angularjs-starter-app/` subdirectory then:
+Make sure you are in the `/javascript-starter-app/` subdirectory then:
 
 ```bash
 npm install
