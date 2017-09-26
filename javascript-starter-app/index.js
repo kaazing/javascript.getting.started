@@ -6,7 +6,7 @@
  */
 
 var connectionInfo = {
-    url: "wss://sandbox.kaazing.net/amqp091", // URL to Kaazing's public sandbox for WebSocket testing
+    url: "wss://demos.kaazing.com/amqp", // URL to Kaazing's public sandbox for WebSocket testing
     username: "guest",
     password: "guest"
 };
